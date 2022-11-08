@@ -18,7 +18,7 @@ const Header = () => {
     </>
     return (
         <div>
-            <div className="navbar p-4 bg-purple-100">
+            <div className="navbar p-4 bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
