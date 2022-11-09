@@ -3,7 +3,7 @@ import person1 from '../../../assets/About/person1.jpg'
 
 const About = () => {
     return (
-        <div className='m-12 p-10'>
+        <div className='m-10 p-10'>
             <div className='grid grid-cols-2 gap-4'>
                 <div className='person-img'>
                     <img src={person1} alt="" /></div>

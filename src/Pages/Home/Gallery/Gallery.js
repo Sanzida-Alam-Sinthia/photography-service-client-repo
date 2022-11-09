@@ -10,9 +10,9 @@ import bird from '../../../assets/Gallery/Bird.JPG'
 
 const Gallery = () => {
     return (
-        <div className='mb-8 mt-8 mr-auto ml-auto p-10'>
+        <div className='mb-8 mt-8 mr-auto ml-auto p-8'>
             <div className='text-center text-5xl font-bold mb-10  text-yellow-400'> Gallery </div>
-            <div className='gallery-grid mr-auto ml-auto'>
+            <div className='gallery-grid  ml-[60px] '>
                 <a href="https://unsplash.com/photos/YTmgx_ru39U" >
                     <h1>fox.</h1>
                     <img src={fox} alt="a fox" />
