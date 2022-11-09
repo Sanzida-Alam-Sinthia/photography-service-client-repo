@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import ServiceCard from './ServiceCard';
 const Services = () => {
     const [services, setServices] = useState([]);
@@ -11,7 +12,7 @@ const Services = () => {
     }, [])
     return (
 
-        <div>
+        <div className='justify-center'>
             <div className='text-center mb-10  text-yellow-400 ml-[60px]'>
 
                 <h2 className="text-center text-5xl font-bold mb-10 text-yellow-400"> My Major Services</h2>
@@ -25,6 +26,13 @@ const Services = () => {
                     >
                     </ServiceCard>)
                 }
+            </div>
+            <div className='mt-12 mb-10 lg:ml-[700px] md:ml-[10px] content-center '>
+                <div>
+                    <Link>
+                        <button className='btn btn-primary bg-yellow-400 justify-center'> See All Services</button>
+                    </Link>
+                </div>
             </div>
         </div>
 

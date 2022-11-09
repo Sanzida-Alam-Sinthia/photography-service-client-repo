@@ -4,6 +4,7 @@ import logo from '../../../assets/favicon.JPG'
 const Header = () => {
     const headerMenu = <>
         <li className='font-semibold'><Link to='/'>Home</Link></li>
+        <li className='font-semibold'><Link to='/blogs'>Blogs</Link></li>
         {
             // user?.email ?
             //     <>
@@ -46,7 +47,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <button className="btn btn-outline btn-warning">Appointment</button>
+                    <button className="btn btn-outline btn-warning font-semibold"><Link to='/login'>Login</Link></button>
                 </div>
             </div>
         </div>
