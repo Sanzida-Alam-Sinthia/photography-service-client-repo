@@ -1,16 +1,16 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import ServiceCard from './ServiceCard';
-const Services = () => {
-    const [services, setServices] = useState([]);
+
+const AllServices = () => {
+    const [allservices, setallServices] = useState([]);
     // const { _id, title, price } = useLoaderData();
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('http://localhost:5000/allservices')
             .then(res => res.json())
-            .then(data => setServices(data))
+            .then(data => setallServices(data))
     }, [])
+
     return (
 
         <div className='justify-center'>
@@ -21,7 +21,7 @@ const Services = () => {
             </div>
             <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-12 ml-[70px]'>
                 {
-                    services.map(service => <ServiceCard
+                    allservices.map(service => <ServiceCard
                         key={service._id}
                         service={service}
                     >
@@ -36,8 +36,7 @@ const Services = () => {
                 </div>
             </div>
         </div>
-
     );
 };
 
-export default Services;
+export default AllServices;

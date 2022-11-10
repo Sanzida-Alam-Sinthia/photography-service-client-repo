@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/favicon.JPG'
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext)
+    const handleUserLogOut = () => {
+        logOut()
+            .then()
+            .catch();
+    }
     const headerMenu = <>
         <li className='font-semibold'><Link to='/'>Home</Link></li>
         <li className='font-semibold'><Link to='/blogs'>Blogs</Link></li>
+        <li className='font-semibold'><Link to='/services'>All Services</Link></li>
         {
             // user?.email ?
             //     <>
@@ -47,7 +55,23 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <button className="btn btn-outline btn-warning font-semibold"><Link to='/login'>Login</Link></button>
+                    {
+                        user?.email ?
+                            <>
+                                <a className='font-semibold text-lg mr-4' href='/myreviews'>
+                                    My Reviews
+                                </a>
+                                <a className='font-semibold text-lg mr-4' href='/addservice'>
+                                    Add Service
+                                </a>
+                                <a className='font-semibold'>
+                                    <button onClick={handleUserLogOut} className='btn-warning text-base rounded mr-2 p-1'>Sign Out</button>
+                                </a>
+                            </>
+                            :
+                            <li className='btn btn-warning rounded p-2 font-semibold text-base mr-3'><Link to='/login'>Login</Link></li>
+                    }
+
                 </div>
             </div>
         </div>
