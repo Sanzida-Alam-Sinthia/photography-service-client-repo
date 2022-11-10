@@ -1,9 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import ReviewRow from '../MyReviews/ReviewRow';
 const ServiceDetails = () => {
     const { user } = useContext(AuthContext)
-    const { _id, title, price, img, description } = useLoaderData();
+    const { _id, event_id, title, price, img, description } = useLoaderData();
+    const [serviceReviews, setServiceReviews] = useState([])
+
     const handleSubmitReview = event => {
         event.preventDefault();
         const form = event.target;
@@ -14,12 +17,14 @@ const ServiceDetails = () => {
 
         const review = {
             service: _id,
+
             serviceName: title,
             price,
             customer: name,
             email,
             reviewtext
         }
+
 
         fetch('http://localhost:5000/reviews', {
             method: 'POST',
@@ -70,69 +75,24 @@ const ServiceDetails = () => {
                                         <th></th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                {/* <tbody>
+                                    {
+                                        serviceReviews.map(review => <ReviewRow
 
-                                    <tr>
-                                        <th>
-                                            <label>
-                                                <input type="checkbox" className="checkbox" />
-                                            </label>
-                                        </th>
-                                        <td>
-                                            <div className="flex items-center space-x-3">
-                                                <div className="avatar">
-                                                    <div className="mask mask-squircle w-12 h-12">
-                                                        <img src="/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <div className="font-bold">Hart Hagerty</div>
-                                                    <div className="text-sm opacity-50">United States</div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            Zemlak, Daniel and Leannon
-                                            <br />
-                                            <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
-                                        </td>
-                                        <td>Purple</td>
-                                        <th>
-                                            <button className="btn btn-ghost btn-xs">details</button>
-                                        </th>
-                                    </tr>
+                                            key={review.service}
+                                            serviceReviews={serviceReviews}
+                                        // handleReviewDelete={handleReviewDelete}
+                                        // updateReview={updateReview}
+                                        // handleInputChange={handleInputChange}
+                                        ></ReviewRow>)
 
-                                    <tr>
-                                        <th>
-                                            <label>
-                                                <input type="checkbox" className="checkbox" />
-                                            </label>
-                                        </th>
-                                        <td>
-                                            <div className="flex items-center space-x-3">
-                                                <div className="avatar">
-                                                    <div className="mask mask-squircle w-12 h-12">
-                                                        <img src="/tailwind-css-component-profile-3@56w.png" alt="Avatar Tailwind CSS Component" />
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <div className="font-bold">Brice Swyre</div>
-                                                    <div className="text-sm opacity-50">China</div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            Carroll Group
-                                            <br />
-                                            <span className="badge badge-ghost badge-sm">Tax Accountant</span>
-                                        </td>
-                                        <td>Red</td>
-                                        <th>
-                                            <button className="btn btn-ghost btn-xs">details</button>
-                                        </th>
-                                    </tr>
+                                        // 
+                                        // 
 
-                                </tbody>
+                                    }
+
+
+                                </tbody> */}
 
                                 <tfoot>
                                     <tr>

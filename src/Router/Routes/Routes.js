@@ -4,11 +4,13 @@ import Blogs from '../../Pages/Blogs/Blogs';
 import Home from '../../Pages/Home/Home';
 import Login from '../../Pages/Login/Login';
 import MyReviews from '../../Pages/MyReviews/MyReviews';
+
 import AddServices from '../../Pages/Services/AddServices/AddServices';
 import AllServices from '../../Pages/Services/AllServices';
 import ServiceDetails from '../../Pages/Services/ServiceDetails';
 import Services from '../../Pages/Services/Services';
 import SignUp from '../../Pages/SignUp/SignUp';
+import PrivateRoute from '../PrivateRoute/PeivateRoute';
 const router = createBrowserRouter([
     {
         path: '/',
@@ -47,7 +49,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/myreviews',
-                element: <MyReviews></MyReviews>
+                element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>
             },
             {
                 path: '/addservices',

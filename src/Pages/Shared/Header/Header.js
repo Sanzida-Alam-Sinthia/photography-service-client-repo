@@ -51,7 +51,7 @@ const Header = () => {
                                 <a className='font-semibold text-lg mr-4' href='/myreviews'>
                                     My Reviews
                                 </a>
-                                <a className='font-semibold text-lg mr-4' href='/addservice'>
+                                <a className='font-semibold text-lg mr-4' href='/addservices'>
                                     Add Service
                                 </a>
                                 <a className='font-semibold'>

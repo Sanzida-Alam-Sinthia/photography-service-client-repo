@@ -30,6 +30,13 @@ const MyReviews = () => {
         }
 
     }
+    const handleInputChange = event => {
+        const field = event.target.name;
+        const value = event.target.value;
+        const newUser = { ...user }
+        newUser[field] = value;
+        setReviews(newUser);
+    }
     const updateReview = id => {
         fetch(`http://localhost:5000/reviews/${id}`, {
             method: 'PATCH',
@@ -79,6 +86,7 @@ const MyReviews = () => {
                                 review={review}
                                 handleReviewDelete={handleReviewDelete}
                                 updateReview={updateReview}
+                                handleInputChange={handleInputChange}
                             ></ReviewRow>)
 
                             // 

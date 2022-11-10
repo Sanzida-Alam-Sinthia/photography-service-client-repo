@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const ReviewRow = ({ review, handleReviewDelete, updateReview }) => {
     const { _id, serviceName, price, reviewtext } = review;
+    const { user } = useContext(AuthContext);
+    const [reviews, setReviews] = useState([])
+    const handleInputChange = event => {
+        const field = event.target.name;
+        const value = event.target.value;
+        const newUser = { ...user }
+        newUser[field] = value;
+        setReviews(newUser);
+    }
     return (
         <tr>
             <th>
@@ -15,23 +25,21 @@ const ReviewRow = ({ review, handleReviewDelete, updateReview }) => {
 
                     <div>
                         <div className="font-bold">{serviceName}</div>
-                        <div className="text-sm opacity-50">United States</div>
+
                     </div>
                 </div>
             </td>
             <td>
                 ${price}
                 <br />
-                <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
+
             </td>
             <td>{reviewtext}</td>
             <th>
-                <button onClick={() => updateReview(_id)} className="btn btn-warning btn-xs">
-                    {/* <Modal>
-                        Enter your name: <Input onChange={this.nameChange} />
-                        <Button onClick={this.reg}>Register</Button>
-                    </Modal>
-                    <Link>Edit Review</Link> {status ? status : 'pending'} */}
+
+                <button onClick={() => updateReview(_id)} className="btn btn-warning ">
+
+                    <input onChange={handleInputChange} type="text" name='reviewtext' placeholder='Edit Review' required />
                 </button>
             </th>
         </tr>
