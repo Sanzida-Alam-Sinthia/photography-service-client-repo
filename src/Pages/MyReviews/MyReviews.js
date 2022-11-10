@@ -7,7 +7,7 @@ const MyReviews = () => {
     const [reviews, setReviews] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
+        fetch(`https://photography-assignment-server-alpha.vercel.app/reviews?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [user?.email])
@@ -15,7 +15,7 @@ const MyReviews = () => {
     const handleReviewDelete = id => {
         const proceed = window.confirm('Want to Delete Your Review?');
         if (proceed) {
-            fetch(`http://localhost:5000/reviews/${id}`, {
+            fetch(`https://photography-assignment-server-alpha.vercel.app/reviews/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -38,7 +38,7 @@ const MyReviews = () => {
         setReviews(newUser);
     }
     const updateReview = id => {
-        fetch(`http://localhost:5000/reviews/${id}`, {
+        fetch(`https://photography-assignment-server-alpha.vercel.app/reviews/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

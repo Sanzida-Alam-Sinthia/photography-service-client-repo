@@ -7,7 +7,7 @@ const Services = () => {
     const [services, setServices] = useState([]);
     // const { _id, title, price } = useLoaderData();
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://photography-assignment-server-alpha.vercel.app/services')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])

@@ -10,7 +10,7 @@ import AllServices from '../../Pages/Services/AllServices';
 import ServiceDetails from '../../Pages/Services/ServiceDetails';
 import Services from '../../Pages/Services/Services';
 import SignUp from '../../Pages/SignUp/SignUp';
-import PrivateRoute from '../PrivateRoute/PeivateRoute';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
 const router = createBrowserRouter([
     {
         path: '/',
@@ -35,17 +35,17 @@ const router = createBrowserRouter([
             {
                 path: '/services',
                 element: <AllServices></AllServices>,
-                loader: () => fetch('http://localhost:5000/allservices')
+                loader: () => fetch('https://photography-assignment-server-alpha.vercel.app/allservices')
             },
             {
                 path: '/',
                 element: <Services></Services>,
-                loader: () => fetch('http://localhost:5000/services')
+                loader: () => fetch('https://photography-assignment-server-alpha.vercel.app/services')
             },
             {
                 path: '/services/:id',
                 element: <ServiceDetails></ServiceDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({ params }) => fetch(`https://photography-assignment-server-alpha.vercel.app/services/${params.id}`)
             },
             {
                 path: '/myreviews',

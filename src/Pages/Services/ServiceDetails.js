@@ -26,7 +26,7 @@ const ServiceDetails = () => {
         }
 
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://photography-assignment-server-alpha.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -50,7 +50,7 @@ const ServiceDetails = () => {
         <div className='flex items-center justify-center m-8'>
             <div className="card w-full bg-base-100 shadow-xl">
                 <figure className="px-10 pt-10">
-                    <img src={img} alt="Shoes" className="rounded-xl" />
+                    <img src={img} alt="" className="rounded-xl" />
                 </figure>
                 <div className="card-body items-center text-center">
                     <h2 className="card-title font-bold text-4xl">{title}</h2>
@@ -75,32 +75,12 @@ const ServiceDetails = () => {
                                         <th></th>
                                     </tr>
                                 </thead>
-                                {/* <tbody>
-                                    {
-                                        serviceReviews.map(review => <ReviewRow
+                                <tbody></tbody>
 
-                                            key={review.service}
-                                            serviceReviews={serviceReviews}
-                                        // handleReviewDelete={handleReviewDelete}
-                                        // updateReview={updateReview}
-                                        // handleInputChange={handleInputChange}
-                                        ></ReviewRow>)
-
-                                        // 
-                                        // 
-
-                                    }
-
-
-                                </tbody> */}
 
                                 <tfoot>
                                     <tr>
-                                        <th></th>
-                                        <th>Name</th>
-                                        <th>Job</th>
-                                        <th>Favorite Color</th>
-                                        <th></th>
+
                                     </tr>
                                 </tfoot>
 
