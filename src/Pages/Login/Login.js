@@ -13,13 +13,33 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         login(email, password)
+
             .then(result => {
                 const user = result.user;
-                console.log(user);
-                navigate(from, { replace: true });
-            })
-            .catch(err => console.error(err));
+                const existingUser = {
+                    email: user.email
+                }
 
+                console.log(existingUser);
+
+                // get jwt token
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(existingUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+
+                        navigate(from, { replace: true });
+                        localStorage.setItem('token', data.token);
+                    })
+                    .catch(err => console.error(err));
+
+            })
     }
     const handleGoogleSignIn = () => {
         signInWithGoogle()
