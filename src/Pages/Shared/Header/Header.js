@@ -13,17 +13,7 @@ const Header = () => {
         <li className='font-semibold'><Link to='/'>Home</Link></li>
         <li className='font-semibold'><Link to='/blogs'>Blogs</Link></li>
         <li className='font-semibold'><Link to='/services'>All Services</Link></li>
-        {
-            // user?.email ?
-            //     <>
-            //         <li className='font-semibold'><Link to='/orders'>Orders</Link></li>
-            //         <li className='font-semibold'>
-            //             <button onClick={handleLogOut} className='btn-ghost'>Sign Out</button>
-            //         </li>
-            //     </>
-            //     :
-            //     <li className='font-semibold'><Link to='/login'>Login</Link></li>
-        }
+
     </>
     return (
         <div>

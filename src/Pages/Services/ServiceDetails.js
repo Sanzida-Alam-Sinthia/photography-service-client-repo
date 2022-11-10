@@ -32,7 +32,7 @@ const ServiceDetails = () => {
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
-                    alert('Order placed successfully')
+                    alert('Review posted successfully')
                     form.reset();
 
                 }
@@ -48,7 +48,7 @@ const ServiceDetails = () => {
                     <img src={img} alt="Shoes" className="rounded-xl" />
                 </figure>
                 <div className="card-body items-center text-center">
-                    <h2 className="card-title font-bold text-2xl">{title}</h2>
+                    <h2 className="card-title font-bold text-4xl">{title}</h2>
                     <h3 className='p-3 text-lg '>Cost: ${price}</h3>
                     <p className='p-5 mr-5 ml-5'>{description}</p>
 
@@ -152,12 +152,12 @@ const ServiceDetails = () => {
                         {
                             user?.email ?
                                 <>
-                                    <h2>Share Your Experience!</h2>
-                                    <form onSubmit={handleSubmitReview} action="">
+                                    <h2 className='text-3xl font-bold mb-3 mt-8'>Share Your Experience!</h2>
+                                    <form onSubmit={handleSubmitReview} action="" className='border-2 border-yellow-400'>
                                         <input name="name" type="text" placeholder="Your Name" className="input input-ghost w-full  input-bordered" />
                                         <input name="email" type="text" placeholder="Your email" defaultValue={user?.email} className="input input-ghost w-full  input-bordered" readOnly />
                                         <textarea name="message" className="textarea textarea-bordered h-24 w-full" placeholder="Your Review" required></textarea>
-                                        <input className='btn' type="submit" value="Post Your Review" />
+                                        <input className='btn btn-warning mt-5 mb-5' type="submit" value="Post Your Review" />
                                     </form>
                                 </>
                                 :
