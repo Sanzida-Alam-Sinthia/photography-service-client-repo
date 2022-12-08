@@ -71,7 +71,7 @@ const ServiceDetails = () => {
                         {
                             user?.email ?
                                 <>
-                                    <h2 className='text-3xl font-bold mb-3 mt-8'>Share Your Experience!</h2>
+                                    <h2 className='text-3xl font-bold mb-10 mt-12'>Share Your Experience!</h2>
                                     <form onSubmit={handleSubmitReview} action="" className='border-2 border-yellow-400'>
                                         <input name="name" type="text" placeholder="Your Name" className="input input-ghost w-full  input-bordered" />
                                         <input name="email" type="text" placeholder="Your email" defaultValue={user?.email} className="input input-ghost w-full  input-bordered" readOnly />

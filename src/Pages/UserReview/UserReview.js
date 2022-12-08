@@ -6,7 +6,7 @@ const UserReview = ({ id, title }) => {
     const [reviews, setReviews] = useState([]);
     const { user } = useContext(AuthContext)
     useEffect(() => {
-        fetch(`http://localhost:5000/allreviews?service=${id}`)
+        fetch(`https://photography-assignment-server-alpha.vercel.app/allreviews?service=${id}`)
             .then(res => res.json())
             .then(data => {
                 setReviews(data)
