@@ -14,12 +14,12 @@ const Services = () => {
     return (
 
         <div className='justify-center'>
-            <div className='items-center text-center mb-10  text-yellow-400 ml-[60px]'>
+            <div className='items-center text-center mb-10  text-yellow-400'>
 
                 <h2 className=" items-center text-center text-5xl font-bold mb-10 text-yellow-400"> My Major Services</h2>
-                <p className='text-lg'>I mainly work in meaningful events as Photographer. Here are some of my services: </p>
+                <p className='text-lg text-white'>I mainly work in meaningful events as Photographer. Here are some of my services: </p>
             </div>
-            <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-12 ml-[70px]'>
+            <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:m-12 p-10'>
                 {
                     services.map(service => <ServiceCard
                         key={service._id}

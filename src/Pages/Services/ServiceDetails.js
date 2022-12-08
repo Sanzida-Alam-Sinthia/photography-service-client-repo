@@ -2,10 +2,11 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import ReviewRow from '../MyReviews/ReviewRow';
+import UserReview from '../UserReview/UserReview';
 const ServiceDetails = () => {
     const { user } = useContext(AuthContext)
     const { _id, event_id, title, price, img, description } = useLoaderData();
-    const [serviceReviews, setServiceReviews] = useState([])
+
 
     const handleSubmitReview = event => {
         event.preventDefault();
@@ -54,37 +55,15 @@ const ServiceDetails = () => {
                 </figure>
                 <div className="card-body items-center text-center">
                     <h2 className="card-title font-bold text-4xl">{title}</h2>
-                    <h3 className='p-3 text-lg '>Cost: ${price}</h3>
-                    <p className='p-5 mr-5 ml-5'>{description}</p>
+                    <h3 className='p-3 text-lg text-red-600 font-bold'>Cost: ${price}</h3>
+                    <p className='text-md mr-5 ml-5  text-white lg:m-10 p-10'>{description}</p>
 
                     <div>
-                        <h2>Some Previous Reviews</h2>
-                        <div className="overflow-x-auto w-full">
-                            <table className="table w-full">
-
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            <label>
-                                                <input type="checkbox" className="checkbox" />
-                                            </label>
-                                        </th>
-                                        <th>Name</th>
-                                        <th>Job</th>
-                                        <th>Favorite Color</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody></tbody>
-
-
-                                <tfoot>
-                                    <tr>
-
-                                    </tr>
-                                </tfoot>
-
-                            </table>
+                        <div>
+                            <UserReview
+                                id={_id}
+                                title={title}
+                            ></UserReview>
                         </div>
                     </div>
                     {/* your review */}
@@ -101,12 +80,10 @@ const ServiceDetails = () => {
                                     </form>
                                 </>
                                 :
-                                <li className='font-semibold'><Link to='/login'>Please Login To Add Your Review!</Link></li>
+                                <li className='font-semibold'><Link to='/login'>Want To Share Your Experience with us? Please Login To Add Your Review!</Link></li>
                         }
                     </div>
-                    <div className="card-actions">
-                        <button className="btn btn-warning">Book Now!</button>
-                    </div>
+
 
                 </div>
 

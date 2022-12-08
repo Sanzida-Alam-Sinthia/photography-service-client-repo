@@ -1,8 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
+import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 const Login = () => {
-    const { login, signInWithGoogle } = useContext(AuthContext);
+    const { login, signInWithGoogle, user } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -36,6 +37,7 @@ const Login = () => {
 
                         navigate(from, { replace: true });
                         localStorage.setItem('token', data.token);
+                        toast.success("Login Successful");
                     })
                     .catch(err => console.error(err));
 
@@ -49,6 +51,12 @@ const Login = () => {
             })
             .catch(error => console.error(error));
     }
+    useEffect(() => {
+        if (user) {
+            navigate(from);
+        }
+    }, [user, from, navigate]);
+
 
     return (
 

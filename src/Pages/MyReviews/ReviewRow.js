@@ -24,24 +24,24 @@ const ReviewRow = ({ review, handleReviewDelete, updateReview }) => {
                 <div className="flex items-center space-x-3">
 
                     <div>
-                        <div className="font-bold">{serviceName}</div>
+                        <div className="font-bold text-white">{serviceName}</div>
 
                     </div>
                 </div>
             </td>
             <td>
-                ${price}
-                <br />
+                <div className='font-bold text-white'>${price}</div>
+
 
             </td>
-            <td>{reviewtext}</td>
-            <th>
+            <td className='text-white font-bold'>{reviewtext}</td>
+            {/* <th>
 
                 <button onClick={() => updateReview(_id)} className="btn btn-warning ">
 
                     <input onChange={handleInputChange} type="text" name='reviewtext' placeholder='Edit Review' required />
                 </button>
-            </th>
+            </th> */}
         </tr>
     );
 };

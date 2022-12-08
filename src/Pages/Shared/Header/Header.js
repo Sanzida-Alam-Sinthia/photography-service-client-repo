@@ -15,9 +15,10 @@ const Header = () => {
         <li className='font-semibold'><Link to='/services'>All Services</Link></li>
 
     </>
+
     return (
         <div>
-            <div className="navbar p-4 bg-base-100">
+            <div className="navbar lg:p-4 bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -30,10 +31,10 @@ const Header = () => {
                     <Link className="btn btn-ghost normal-case text-xl">
                         <img className='object-cover relative rounded-full border
                      border-gray-100 shadow-sm
-                         max-w-max   h-full' src={logo} alt='' />
+                         max-w-max   h-full  ' src={logo} alt='' />
 
                     </Link>
-                    <Link className='font-bold text-xl p-1'>
+                    <Link className='font-bold lg:text-xl p-1 text-sm'>
                         <h2>Memory Creation Photography</h2>
 
                         <small>By Sanzida</small>

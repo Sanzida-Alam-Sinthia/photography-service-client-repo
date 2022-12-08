@@ -61,17 +61,16 @@ const MyReviews = () => {
 
     return (
 
-        <div>
+        <div className='mb-10 lg:m-12 p-12'>
             {
                 reviews.length === 0 && <h2>No Reviews are added</h2>
             }
-            <h2 className="text-3xl text-center font-bold mt-8 mb-8">You provided us {reviews.length} reviews</h2>
-            <div className="overflow-x-auto w-full m-8 p-5">
+            <h2 className="text-3xl text-center font-bold mt-8 mb-8 text-white">You provided us {reviews.length} reviews</h2>
+            <div className="overflow-x-auto lg:w-full sm:w-32 items-center justify-center flex ">
                 <table className="table w-full">
-                    <thead>
-                        <tr>
-                            <th>
-                            </th>
+                    <thead >
+                        <tr >
+                            <th > Delete Review</th>
                             <th>Service Name</th>
                             <th>Cost</th>
 
@@ -84,6 +83,7 @@ const MyReviews = () => {
 
                                 key={review._id}
                                 review={review}
+
                                 handleReviewDelete={handleReviewDelete}
                                 updateReview={updateReview}
                                 handleInputChange={handleInputChange}

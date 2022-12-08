@@ -1,9 +1,13 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import img from '../../assets/Register.JPG'
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 const SignUp = () => {
+    const navigate = useNavigate();
     const { createUser, signInWithGoogle } = useContext(AuthContext);
+    const location = useLocation();
+    const from = location?.state?.from?.pathname || "/login";
     const handleUserSignUp = event => {
         event.preventDefault();
         const form = event.target;
@@ -14,7 +18,10 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                toast.success("Your Account Created Successfully. Thanks For Signup.");
+                navigate(from);
             })
+
             .catch(err => console.error(err));
     }
     const handleGoogleSignIn = () => {
